@@ -89,7 +89,7 @@ python main.py [options]
 ```
 Options
 - `--question`:
-  - Options: `original`, `refined``
+  - Options: `original`, `rephrased`
   - Description: Specifies the type of question to be processed. Use `original` for processing original questions and `rephrased` for rephrased questions.
 - `--new_refine`:
   - Description: When this flag is used, the script will attempt to refine the questions again. By default, this behavior is turned off.
