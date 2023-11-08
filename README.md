@@ -13,9 +13,7 @@ This repo holds data and code of the paper "[Rephrase and Respond: Let Large Lan
 
 Authors: [Yihe Deng](https://sites.google.com/g.ucla.edu/yihedeng/), [Weitong Zhang](https://web.cs.ucla.edu/~weightzero/), [Zixiang Chen](https://sites.google.com/view/zxchen), [Quanquan Gu](https://web.cs.ucla.edu/~qgu/)
 
-:thumbsup: If you have any comments or suggestions, please don't hesitate to comment on the [Twitter]().
-
-[[Webpage](https://uclaml.github.io/Rephrase-and-Respond)] [[Paper](https://arxiv.org/abs/2311.04205)] [[Huggingface](https://huggingface.co/papers/2311.04205)] [[Twitter]()]
+[[Webpage](https://uclaml.github.io/Rephrase-and-Respond)] [[Paper](https://arxiv.org/abs/2311.04205)] [[Huggingface](https://huggingface.co/papers/2311.04205)] 
 
 <p align="center">
     <img src="images/demo_RaR.png" width="100%"> <br>
