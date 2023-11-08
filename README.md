@@ -52,7 +52,7 @@ Install the Python dependencies to reproduce our results for GPT-4 and GPT-3.5-t
 pip install openai 
 pip install tenacity
 ```
-For details of API keys for GPT-4, please refer to [OpenAI API key](https://platform.openai.com/account/api-keys). 
+For details of API keys for GPT-4 and GPT-3.5, please refer to [OpenAI API key](https://platform.openai.com/account/api-keys). 
 
 ### Data 
 We provide the data used in our experiments along with gpt-4's rephrased questions in [data](data). The data is all in json format and contains the following attributes: 
@@ -83,6 +83,24 @@ The description for the tasks considered in this paper is as follows:
 For reference, the original datasets are held in [raw_data](raw_data) and the preprocessing codes are in [preprocess.ipynb](preprocess.ipynb). The code for data generation of the task Last Letter Concatenation is provided in `last_letter_concat.py`, thanks to [DataGenLM](https://github.com/atfortes/DataGenLM/tree/main).
 
 ## Evaluation
+`main.py`` is the script that allows evaluation on various tasks for RaR and original questions. Below are the command-line arguments that can be used to customize its behavior.
+```
+python main.py [options]
+```
+Options
+- `--question`:
+  - Options: `original`, `refined``
+  - Description: Specifies the type of question to be processed. Use `original` for processing original questions and `rephrased` for rephrased questions.
+- `--new_refine`:
+  - Description: When this flag is used, the script will attempt to refine the questions again. By default, this behavior is turned off.
+- `--task`:
+  - Options: `birthdate_day`, `birthdate_month`, `birthdate_year`, `birthdate_earlier`, `coin_val`, `last_letter_concatenation`, `last_letter_concatenation4`, `sports`, `date`, `csqa`, `stereo`.
+  - Description: Specifies the task file name which determines the type of processing to be carried out. Each task type corresponds to a specific function.
+- `--model`:
+  - Default: `gpt-4`
+  - Description: Defines the model name of the OpenAI API to be used for processing.
+
+### Examples
 Generate GPT-4's response to the original questions of Last Letter Concatenation:
 ```sh
 python main.py \
@@ -95,7 +113,7 @@ Generate GPT-4's response to the provided rephrased questions of Last Letter Con
 ```sh
 python main.py \
 --model gpt-4 \
---question refine \
+--question rephrased \
 --task last_letter_concatenation
 ```
 
@@ -103,9 +121,9 @@ Generate GPT-4's rephrased questions and response to the newly rephrased questio
 ```sh
 python main.py \
 --model gpt-4 \
---question refine \
+--question rephrased \
 --task last_letter_concatenation \
---new_refine
+--new_rephrase
 ```
 
 ## Citation
