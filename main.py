@@ -91,12 +91,11 @@ def get_result(filename):
             ]
         response = chatgpt_conversation(messages, model_id)
         
-        log_directory = 'log_{model_id}/{filename}_{args.question}_response.json'
-        log_directory_false = 'log_{model_id}/{filename}_{args.question}_wrong.json'
+        log_directory = f'log_{model_id}'
+        # log_directory = 'log_{model_id}/{filename}_{args.question}_response.json'
+        # log_directory_false = 'log_{model_id}/{filename}_{args.question}_wrong.json'
         if not os.path.exists(log_directory):
             os.makedirs(log_directory)
-        if not os.path.exists(log_directory_false):
-            os.makedirs(log_directory_false)
         
         by_word = ['coin_val', 'last_letter_concatenation', 'last_letter_concatenation4', 'birthdate_day', 'birthdate_month', 'birthdate_year', 'birthdate_earlier', 'sports']
         punctuation_marks = {'.', ','}
@@ -116,7 +115,7 @@ def get_result(filename):
                     right += 1
                 else:
                     wrong += 1
-                    with open(log_directory_false, 'a') as f:
+                    with open(f'log_{model_id}/{filename}_{args.question}_wrong.json', 'a') as f:
                         record = {"question":q["question"], "answer":q["answer"], "response":response}
                         json.dump(record, f)
                         f.write('\n')
@@ -124,13 +123,13 @@ def get_result(filename):
                 right += 1
         else:
             wrong += 1
-            with open(log_directory_false, 'a') as f:
+            with open(f'log_{model_id}/{filename}_{args.question}_wrong.json', 'a') as f:
                 record = {"question":q["question"], "answer":q["answer"], "response":response}
                 json.dump(record, f)
                 f.write('\n')
 
         # document the responses
-        with open(log_directory, 'a') as f:
+        with open(f'log_{model_id}/{filename}_{args.question}_response.json', 'a') as f:
             record = {"question":q["question"], "answer":q["answer"], "response":response}
             json.dump(record, f)
             f.write('\n')

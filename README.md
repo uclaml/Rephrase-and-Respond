@@ -11,7 +11,7 @@
 
 This repo holds data and code of the paper "[Rephrase and Respond: Let Large Language Models Ask Better Questions for Themselves](https://arxiv.org/abs/2311.04205)".
 
-Authors: [Yihe Deng](https://sites.google.com/g.ucla.edu/yihedeng/), [Weitong Zhang](https://web.cs.ucla.edu/~weightzero/), [Zixiang Chen](), [Quanquan Gu](https://web.cs.ucla.edu/~qgu/)
+Authors: [Yihe Deng](https://sites.google.com/g.ucla.edu/yihedeng/), [Weitong Zhang](https://web.cs.ucla.edu/~weightzero/), [Zixiang Chen](https://sites.google.com/view/zxchen), [Quanquan Gu](https://web.cs.ucla.edu/~qgu/)
 
 :thumbsup: If you have any comments or suggestions, please don't hesitate to comment on the [Twitter]().
 
@@ -21,6 +21,9 @@ Authors: [Yihe Deng](https://sites.google.com/g.ucla.edu/yihedeng/), [Weitong Zh
     <img src="images/demo_RaR.png" width="100%"> <br>
   Demonstration of <b>Rephrase and Respond</b> (RaR). 
 </p>
+
+## 🔔 News 
+- **[11/08/2023]** Our paper is released on arXiv: https://arxiv.org/abs/2311.04205.
 
 ## 🔍 About RaR
 Misunderstandings arise not only in interpersonal communication but also between humans and Large Language Models (LLMs). Such discrepancies can make LLMs interpret seemingly unambiguous questions in unexpected ways, yielding incorrect responses. While it is widely acknowledged that the quality of a prompt, such as a question, significantly impacts the quality of the response provided by LLMs, a systematic method for crafting questions that LLMs can better comprehend is still underdeveloped. 
