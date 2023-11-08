@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="RaR">
+  <meta property="og:title" content="Rephrase and Respond: Let Large Language Models Ask Better Questions for Themselves"/>
+  <meta property="og:description" content="We propose Rephrase and Respond (RaR), which allows LLMs to rephrase and expand questions posed by humans and provide responses in a single prompt."/>
+  <meta property="og:url" content="https://uclaml.github.io/PDE/"/>
+  
+
+  <meta name="twitter:title" content="Rephrase and Respond: Let Large Language Models Ask Better Questions for Themselves">
+  <meta name="twitter:description" content="We propose Rephrase and Respond (RaR), which allows LLMs to rephrase and expand questions posed by humans and provide responses in a single prompt.">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="LLM, prompting, RaR, Rephrase and Respond">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Rephrase and Respond: Let Large Language Models Ask Better Questions for Themselves</title>
+  <link rel="icon" type="image/x-icon" href="static/images/star.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Rephrase and Respond: Let Large Language Models Ask Better Questions for Themselves</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://sites.google.com/g.ucla.edu/yihedeng/home" target="_blank">Yihe Deng</a>,</span>
+                <span class="author-block">
+                  <a href="https://web.cs.ucla.edu/~weightzero/" target="_blank">Weitong Zhang</a>,</span>
+                  <span class="author-block">
+                    <a href="https://sites.google.com/view/zxchen/" target="_blank">Zixiang Chen</a>,</span>
+                    <span class="author-block">
+                      <a href="https://web.cs.ucla.edu/~qgu/" target="_blank">Quanquan Gu</a>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">University of California, Los Angeles</span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/pdf/2311.04205.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/uclaml/Rephrase-and-Respond" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2311.04205" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Misunderstandings arise not only in interpersonal communication but also between humans and Large Language Models (LLMs). Such discrepancies can make LLMs interpret seemingly unambiguous questions in unexpected ways, yielding incorrect responses. 
+            While it is widely acknowledged that the quality of a prompt, such as a question, significantly impacts the quality of the response provided by LLMs, a systematic method for crafting questions that LLMs can better comprehend is still underdeveloped. 
+            In this paper, we present a method named `Rephrase and Respond' (RaR), which allows LLMs to rephrase and expand questions posed by humans and provide responses in a single prompt. This approach serves as a simple yet effective prompting method for improving performance. 
+            We also introduce a two-step variant of RaR, where a rephrasing LLM first rephrases the question and then passes the original and rephrased questions together to a different responding LLM. This facilitates the effective utilization of rephrased questions generated by one LLM with another.  Our experiments demonstrate that our methods significantly improve the performance of different models across a wide range to tasks. 
+            We further provide a comprehensive comparison between RaR and the popular Chain-of-Thought (CoT) methods, both theoretically and empirically. We show that RaR is complementary to CoT and can be combined with CoT to achieve even better performance. Our work not only contributes to enhancing LLM performance efficiently and effectively but also sheds light on a fair evaluation of LLM capabilities.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Rephrase and Respond (RaR). -->
+<div class="columns is-centered">
+  <div class="column is-three-fifths">
+    <h2 class="title is-3">Rephrase and Respond (RaR)</h2>
+
+    <img src="images/demo_RaR.png" alt="MY ALT TEXT"/>
+      <h2 class="subtitle has-text-centered">
+        Demonstration of RaR. One-step RaR: one single prompt to ask the LLM to rephrase, expand and respond. Two-Step RaR: it involves first rephrasing the question and then using the original and
+        rephrased question to improve the response quality.
+      </h2>
+    <!-- RaR -->
+    <h3 class="title is-4">(One-step) RaR</h3>
+    <div class="content has-text-justified">
+      <p>
+        In interpersonal communication, rephrasing is a commonly known technique. 
+        People rephrase another person's question as a process of understanding, to ensure clarity and coherence in responding. 
+        Such a communication strategy can be similarly applied to an LLM, letting it generate a rephrased question first and provide an answer subsequently. 
+        Following this intuition, we propose <b>RaR</b> to ask the LLMs to <b>Rephrase and Response</b> the question using a single query. 
+        This approach can be viewed as a strategy to directly enhance the quality of the LLM's response.
+      </p>
+      <pre><code>
+        "{question}"
+        Rephrase and expand the question, and respond.
+      </code></pre>
+    </div>
+    <br/>
+    <!--/ RaR. -->
+
+    <!-- Two-step RaR -->
+    <h3 class="title is-4">Two-step RaR</h3>
+    <div class="content has-text-justified">
+      <p>
+        To further leverage the quality improvement of the questions rephrased by larger models, 
+        like GPT-4, we introduce a variation of RaR called <b>Two-step RaR</b>. 
+        Intuitively, even among humans, a more detailed and precise question elicits in more accurate and decisive responses. 
+        Two-step RaR follows this intuition by designing a two-step procedure to improve the quality of the questions: 
+        in the first step, given a query <i>question</i>, we generate a self-rephrased query <i>rephrased_question</i> by prompting a 
+        <i>rephrasing LLM</i> with the following prompt:
+      </p>
+      <pre><code>
+        "{question}"
+        Given the above question, rephrase and expand it to help you do better answering. Maintain all information in the original question.
+      </code></pre>
+    </div>
+    <!--/ Two-step RaR -->
+
+  </div>
+</div>
+<!--/ Rephrase and Respond (RaR). -->
+
+<!-- Motivating Example. -->
+<div class="columns is-centered">
+  <div class="column is-three-fifths">
+    <h2 class="title is-3">Motivating Example</h2>
+      <div class="content has-text-justified">
+        <p>
+          Why are we interested in RaR? Let's investigate the following motivating example. 
+          When posed with the query, "Was Mother Teresa born on an even month?"" GPT-4 might mistakenly assert that August is an odd month. 
+          We take a step further to investigate the intrinsic reason for LLM's inefficiency in answering such questions. 
+          As shown in the other three conversations in the figure, when GPT-4 explains its reasoning, 
+          it appears that the model has several ambiguities toward the questions. 
+          For example, it may consider February as odd due to its irregular number of days and sometimes consider an even/odd month 
+          to be months with an even/odd number of days. 
+        </p>
+        <p>
+          In this paper, we highlight an often-overlooked aspect of studies in LLMs: the disparity between human and LLM thought frames. 
+          To tackle this problem, we propose to let the LLM to rephrase the question and incorporate additional details for better answering.
+          Upon rephrasing by the LLM itself, the newly generated question is more detailed and has a clearer question format, 
+          as presented in the figure. This self-rephrasing technique leads to significant improvement in accuracy, 
+          as shown in the barplot. 
+        </p>
+    </div>
+  </div>
+</div>
+<!--/ Motivating Example. -->
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <!-- Your image here -->
+        <img src="images/demo_even_month.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Ambiguities exist in the human-crafted questions, resulting in LLMs responding to unintended questions.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="images/demo_refine.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          GPT-4's rephrased questions can significantly improve its own performance.
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+<!-- Results. -->
+<div class="columns is-centered">
+  <div class="column is-three-fifths">
+    <h2 class="title is-3">Results</h2>
+      <div class="content has-text-justified">
+        <p>
+          We investigate the performance of RaR by comparing the accuracy of GPT-4 with One-step RaR and Two-step RaR. 
+          Notably, both One-step RaR and Two-step RaR significantly improve GPT-4's accuracy. 
+          Notably, for tasks that GPT-4 originally finds
+          highly challenging, RaR exhibits remarkable improvement even to almost 100% accuracy. 
+          Indeed, similar to human communication, rephrasing and elaborating a question
+          and then answering is an effective approach. In summary: 
+        </p>
+        <ul>
+          <li>(One-step) RaR provides a universal, plug-and-play black-box prompt that allows for efficient and effective performance improvement of LLMs on general tasks.</li>
+          <li>Two-step RaR provides a universal method for LLMs to improve the question quality autonomously by rephrasing the question.</li>
+          <li>Examining the question quality is pivotal when evaluating the LLM performance on QA tasks.</li>
+        </ul>
+    </div>
+  </div>
+</div>
+<!--/ Results. -->
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <!-- Your image here -->
+        <img src="images/tasks.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Overview of the tasks we evaluated on. The table includes tasks we used in later sections.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="images/tasks_res.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Accuracy (%) comparison of different prompts using GPT-4. Both One-step RaR and Two-step RaR
+          effectively improve the accuracy of GPT-4 across 10 tasks.
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+<!-- Results. -->
+<div class="columns is-centered">
+  <div class="column is-three-fifths">
+    <h2 class="title is-4">Performance across Various LLMs</h2>
+      <div class="content has-text-justified">
+        <p>
+          We further examine the performance of RaR on various LLMs, including GPT-3.5 and Vicuna. 
+          In particular, we employ Two-step RaR to investigate (1) if all these LLMs can provide consistent 
+          response improvement by rephrasing the questions; and (2) if the GPT-4-rephrased questions can improve 
+          the performance of other LLMs.
+        </p>
+        <ul>
+          <li>All models can benefit from rephrasing questions, with more advanced models expected to gain a larger improvement.</li>
+          <li>The rephrased questions are transferable: the questions rephrased by GPT-4 can improve the response quality on Vicuna.</li>
+        </ul>
+    </div>
+  </div>
+</div>
+<!--/ Results. -->
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <!-- Your image here -->
+        <img src="images/models.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Accuracy (%) of GPT-4-0613, GPT-3.5-turbo-0613 and Vicuna-13b when testing on original and self-rephrased questions using Two-step RaR
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="images/models_exp.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Examples of the self-rephrased questions generated by different LLM models.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="images/models_table.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Comparison of GPT-4's rephrased questions with Vicuna's self-rephrased questions.
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@misc{deng2023rephrase,
+        title={Rephrase and Respond: Let Large Language Models Ask Better Questions for Themselves}, 
+        author={Yihe Deng and Weitong Zhang and Zixiang Chen and Quanquan Gu},
+        year={2023},
+        eprint={2311.04205},
+        archivePrefix={arXiv},
+        primaryClass={cs.CL}
+      }</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
