@@ -303,7 +303,7 @@
         <!-- Your image here -->
         <img src="images/models.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
-          Accuracy (%) of GPT-4-0613, GPT-3.5-turbo-0613 and Vicuna-13b when testing on original and self-rephrased questions using Two-step RaR
+          Accuracy (%) of GPT-4-0613, GPT-3.5-turbo-0613 and Vicuna-13b when testing on original and self-rephrased questions using Two-step RaR.
         </h2>
       </div>
       <div class="item">
@@ -318,6 +318,55 @@
         <img src="images/models_table.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
           Comparison of GPT-4's rephrased questions with Vicuna's self-rephrased questions.
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+<!-- Results. -->
+<div class="columns is-centered">
+  <div class="column is-three-fifths">
+    <h2 class="title is-3">Comparison with Chain-of-Thought</h2>
+      <div class="content has-text-justified">
+        <p>
+          We compare RaR with CoT. 
+          We present the mathematical formualtions of RaR and CoT and compare them with each other. 
+          We also present experimental results to show that (1) RaR offers improvements in scenarios where 
+          zero-shot CoT is ineffective; and (2) RaR addresses and corrects the shortcomings inherent in few-shot CoT.
+        </p>
+    </div>
+  </div>
+</div>
+<!--/ Results. -->
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <!-- Your image here -->
+        <img src="images/math.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Demonstration of our mathematical formulation of CoT and RaR.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="images/question_quality.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Demonstration of the importance of question quality as compared to reasoning in the coin flip question.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="images/models_table.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          A badly crafted QA example, as shown in red, result in the LLM following the provided logic but reaching an arbitrary answer. 
+          Meanwhile, our prompt can successfully correct the pitfalls in the few-shot examples and improve the robustness and efficacy of few-shot CoT.
         </h2>
       </div>
     </div>
