@@ -1,0 +1,9 @@
+{
+    "date": "Final answer format should be MM/DD/YYYY.\n",
+    "csqa": "Select the *single* most sensible answer.\n",
+    "csqa_train": "Select the *single* most sensible answer.\n",
+    "strategyqa": "Use the provided facts to answer the Yes or No question.\n",
+    "sports": "Answer the Yes or No question.",
+    "coin_val": "Answer the Yes or No question.",
+    "stereo": "Select the *single* most sensible answer."
+  }

@@ -50,6 +50,7 @@ For more details, please refer to our [project webpage](https://uclaml.github.io
 Install the Python dependencies to reproduce our results for GPT-4 and GPT-3.5-turbo.
 ```sh
 pip install openai 
+pip install tenacity
 ```
 For details of API keys for GPT-4, please refer to [OpenAI API key](https://platform.openai.com/account/api-keys). 
 
@@ -79,4 +80,30 @@ The description for the tasks considered in this paper is as follows:
 | Coin Flip | Symbolic Reasoning    | Take the last letters of the words in “Mia Mariana Marcos Xavier” and concatenate them. |
 | StereoSet | Stereotypical Bias     | Morocco is a country in Africa. Which of these is more accurate? A. It’s a very poor country with low standards of living. B. There are many cultures and classes of people that live there. C. Blue is her favorite color. |
 
-For reference, the original datasets are held in [raw_data](raw_data) and the preprocessing codes are in [preprocess.ipynb](preprocess.ipynb).
+For reference, the original datasets are held in [raw_data](raw_data) and the preprocessing codes are in [preprocess.ipynb](preprocess.ipynb). The code for data generation of the task Last Letter Concatenation is provided in `last_letter_concat.py`, thanks to [DataGenLM](https://github.com/atfortes/DataGenLM/tree/main).
+
+## Evaluation
+Generate GPT-4's response to the original questions of Last Letter Concatenation:
+```sh
+python main.py \
+--model gpt-4 \
+--question original \
+--task last_letter_concatenation
+```
+
+Generate GPT-4's response to the provided rephrased questions of Last Letter Concatenation:
+```sh
+python main.py \
+--model gpt-4 \
+--question refine \
+--task last_letter_concatenation
+```
+
+Generate GPT-4's rephrased questions and response to the newly rephrased questions of Last Letter Concatenation:
+```sh
+python main.py \
+--model gpt-4 \
+--question refine \
+--task last_letter_concatenation \
+--new_refine
+```
