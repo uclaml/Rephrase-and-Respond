@@ -13,9 +13,9 @@ This repo holds data and code of the paper "[Rephrase and Respond: Let Large Lan
 
 Authors: Yihe Deng, Weitong Zhang, Zixiang Chen, Quanquan Gu
 
-:speech_balloon: If you have any comments or suggestions, please don't hesitate to comment on the [Twitter](https://uclaml.github.io/PDE/).
+:thumbsup: If you have any comments or suggestions, please don't hesitate to comment on the [Twitter]().
 
-[[Webpage](Rephrase-and-Respond)] [[Paper](https://arxiv.org/abs/2311.04205)] [[Huggingface](https://huggingface.co/papers/2311.04205)] [[Twitter]()]
+[[Webpage](https://uclaml.github.io/Rephrase-and-Respond)] [[Paper](https://arxiv.org/abs/2311.04205)] [[Huggingface](https://huggingface.co/papers/2311.04205)] [[Twitter]()]
 
 <p align="center">
     <img src="images/demo_RaR.png" width="100%"> <br>
@@ -43,3 +43,40 @@ Our experiments demonstrate that our methods significantly improve the performan
     <img src="images/exp_results_RaR.png" width="50%"> <br>
   Accuracy (%) comparison of different prompts using GPT-4.
 </p>
+
+For more details, please refer to our [project webpage](https://uclaml.github.io/Rephrase-and-Respond/) and our [paper](https://arxiv.org/abs/2311.04205).
+
+## Setup
+Install the Python dependencies to reproduce our results for GPT-4 and GPT-3.5-turbo.
+```sh
+pip install openai 
+```
+For details of API keys for GPT-4, please refer to [OpenAI API key](https://platform.openai.com/account/api-keys). 
+
+### Data 
+We provide the data used in our experiments along with gpt-4's rephrased questions in [data](data). The data is all in json format and contains the following attributes: 
+
+```
+{
+    "question": [string] The question text,
+    "answer": [string] The ground truth answer, 
+    "refined_question": [string] The question text rephrased by GPT-4,
+}
+```
+
+The description for the tasks considered in this paper is as follows:
+| Dataset   | Category | Question Example                                             |
+| --------------- | ----------- | ------------------------------------------------------------ |
+| Even Day | Knowledge Classification  | Was Donald Trump born in an even day? |
+| Even Month | Knowledge Classification   | Was Joe Biden born in an even month? |
+| Even Year | Knowledge Classification   | Was Elon Musk born in an even year? |
+| Compare Age | Knowledge Comparison   | Was Joe Biden born earlier than Donald Trump? |
+| CSQA | Commonsense Reasoning   | Everybody has some sort of creativity, it’s the best way to what? Choices: A. Create art B. Write C. Sew D. Create idea E. Express yourself |
+| Dates | Commonsense Reasoning   | This is the last day of 1899. What is the date tomorrow in MM/DD/YYYY? |
+| Sports | Commonsense Reasoning   | Is the following sentence plausible? “Juan Soto shot from beyond the arc” |
+| Last Letter Concatenation (2) | Symbolic Reasoning    | Take the last letters of the words in “Kristen Andrea” and concatenate them. |
+| Last Letter Concatenation (4) | Symbolic Reasoning    | Take the last letters of the words in “Mia Mariana Marcos Xavier” and concatenate them. |
+| Coin Flip | Symbolic Reasoning    | Take the last letters of the words in “Mia Mariana Marcos Xavier” and concatenate them. |
+| StereoSet | Stereotypical Bias     | Morocco is a country in Africa. Which of these is more accurate? A. It’s a very poor country with low standards of living. B. There are many cultures and classes of people that live there. C. Blue is her favorite color. |
+
+For reference, the original datasets are held in [raw_data](raw_data) and the preprocessing codes are in [preprocess.ipynb](preprocess.ipynb).
