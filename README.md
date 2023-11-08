@@ -26,7 +26,7 @@ Authors: Yihe Deng, Weitong Zhang, Zixiang Chen, Quanquan Gu
 Misunderstandings arise not only in interpersonal communication but also between humans and Large Language Models (LLMs). Such discrepancies can make LLMs interpret seemingly unambiguous questions in unexpected ways, yielding incorrect responses. While it is widely acknowledged that the quality of a prompt, such as a question, significantly impacts the quality of the response provided by LLMs, a systematic method for crafting questions that LLMs can better comprehend is still underdeveloped. 
 
 <p align="center">
-    <img src="images/demo_even_month.png" width="100%"> <br>
+    <img src="images/demo_even_month.png" width="80%"> <br>
   An LLM can interpret "even month" as the month with even number of days, which diverges from human intention.
 </p>
 
@@ -40,6 +40,6 @@ Rephrase and expand the question, and respond.
 Our experiments demonstrate that our methods significantly improve the performance of different models across a wide range to tasks. We further provide a comprehensive comparison between RaR and the popular Chain-of-Thought (CoT) methods, both theoretically and empirically. We show that RaR is complementary to CoT and can be combined with CoT to achieve even better performance.
 
 <p align="center">
-    <img src="images/exp_results_RaR.png" width="60%"> <br>
+    <img src="images/exp_results_RaR.png" width="50%"> <br>
   Accuracy (%) comparison of different prompts using GPT-4.
 </p>
