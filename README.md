@@ -11,7 +11,7 @@
 
 This repo holds data and code of the paper "[Rephrase and Respond: Let Large Language Models Ask Better Questions for Themselves](https://arxiv.org/abs/2311.04205)".
 
-Authors: Yihe Deng, Weitong Zhang, Zixiang Chen, Quanquan Gu
+Authors: [Yihe Deng](https://sites.google.com/g.ucla.edu/yihedeng/), [Weitong Zhang](https://web.cs.ucla.edu/~weightzero/), [Zixiang Chen](), [Quanquan Gu](https://web.cs.ucla.edu/~qgu/)
 
 :thumbsup: If you have any comments or suggestions, please don't hesitate to comment on the [Twitter]().
 
@@ -106,4 +106,17 @@ python main.py \
 --question refine \
 --task last_letter_concatenation \
 --new_refine
+```
+
+## Citation
+If you find this repo useful for your research, please consider citing the paper
+```
+@misc{deng2023rephrase,
+  title={Rephrase and Respond: Let Large Language Models Ask Better Questions for Themselves}, 
+  author={Yihe Deng and Weitong Zhang and Zixiang Chen and Quanquan Gu},
+  year={2023},
+  eprint={2311.04205},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
 ```
