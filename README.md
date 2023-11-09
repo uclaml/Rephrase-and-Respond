@@ -84,7 +84,7 @@ The description for the tasks considered in this paper is as follows:
 For reference, the original datasets are held in [raw_data](raw_data) and the preprocessing codes are in [preprocess.ipynb](preprocess.ipynb). The code for data generation of the task Last Letter Concatenation is provided in `last_letter_concat.py`, thanks to [DataGenLM](https://github.com/atfortes/DataGenLM/tree/main).
 
 ## Evaluation
-`main.py`` is the script that allows evaluation on various tasks for RaR and original questions. Below are the command-line arguments that can be used to customize its behavior.
+`main.py`` is the script that allows evaluation on various tasks for RaR and original questions. Below are the command-line arguments that can be used to customize its behavior. We note that the code calculates a coarse accuracy by exactly matching the answer and documents the responses automatically considered wrong. We manually revisit the document to rule out the actually correct ones.  
 ```
 python main.py [options]
 ```
