@@ -21,6 +21,7 @@ Authors: [Yihe Deng](https://sites.google.com/g.ucla.edu/yihedeng/), [Weitong Zh
 </p>
 
 ## 🔔 News 
+- **[11/10/2023]** With the new feature GPTs relased by OpenAI, we built RaR-GPT. Play with ChatGPT+RAR: https://chat.openai.com/g/g-aonT0e0EB-rar-gpt
 - **[11/08/2023]** Our paper is released on arXiv: https://arxiv.org/abs/2311.04205.
 
 ## 🔍 About RaR
