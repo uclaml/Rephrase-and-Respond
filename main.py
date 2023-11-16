@@ -48,7 +48,7 @@ SPEC = ""
 if args.task in spec_config:
     SPEC = spec_config[args.task]
 
-openai.api_key = "Your API key" # put your API key here
+openai.api_key = "Your API Key" # put your API key here
 model_id = args.model
 
 @retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
@@ -291,7 +291,7 @@ def refine_question(filename):
 
 def get_result_onestep(filename):
     right, wrong = 0, 0
-    with open(f'data/{filename}.json', 'r') as f:
+    with open(f'data/{filename}_{model_id}.json', 'r') as f:
         data = json.load(f)
     log_directory = f'log_{model_id}'
     if not os.path.exists(log_directory):
