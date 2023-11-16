@@ -101,6 +101,8 @@ Options
 - `--model`:
   - Default: `gpt-4`
   - Description: Defines the model name of the OpenAI API to be used for processing.
+- `--onestep`:
+  - Description: When this flag is used, the script will employ 1-step RaR and generate the results.
 
 ### Examples
 Generate GPT-4's response to the original questions of Last Letter Concatenation:
@@ -111,7 +113,7 @@ python main.py \
 --task last_letter_concatenation
 ```
 
-Generate GPT-4's response to the provided rephrased questions of Last Letter Concatenation:
+Generate GPT-4's response to the provided rephrased questions of Last Letter Concatenation (2-step RaR):
 ```sh
 python main.py \
 --model gpt-4 \
@@ -119,7 +121,7 @@ python main.py \
 --task last_letter_concatenation
 ```
 
-Generate GPT-4's rephrased questions and response to the newly rephrased questions of Last Letter Concatenation:
+Generate GPT-4's rephrased questions and response to the newly rephrased questions of Last Letter Concatenation (2-step RaR):
 ```sh
 python main.py \
 --model gpt-4 \
@@ -128,6 +130,13 @@ python main.py \
 --new_rephrase
 ```
 
+Generate GPT-4's response using 1-step RaR:
+```sh
+python main.py \
+--model gpt-4 \
+--task last_letter_concatenation \
+--onestep
+```
 ## Citation
 If you find this repo useful for your research, please consider citing the paper
 ```
