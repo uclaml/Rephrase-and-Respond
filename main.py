@@ -76,15 +76,27 @@ def get_result(filename):
         answer = q['answer']
         if args.question == 'rephrased':
             assert 'refined_question' in q.keys() and q['refined_question'] != ''
-            messages = [
-                {"role": "user",
-                 "content": "(original) {original}\n(rephrased) {rephrased}\n{spec}Use your answer for the rephrased question to answer the original question.".format(
-                     original=q['question'],
-                     rephrased=q['refined_question'],
-                     spec=SPEC
-                     )
-                }
-            ]
+
+            if 'gpt-4' in args.model:
+                messages = [
+                    {"role": "user",
+                    "content": "(original) {original}\n(rephrased) {rephrased}\n{spec}Use your answer for the rephrased question to answer the original question.".format(
+                        original=q['question'],
+                        rephrased=q['refined_question'],
+                        spec=SPEC
+                        )
+                    }
+                ]
+            else:
+                messages = [
+                    {"role": "user",
+                    "content": "(original) {original}\n(revised) {rephrased}\n{spec}Use your answer in the revised question to answer the original question.".format(
+                        original=q['question'],
+                        rephrased=q['refined_question'],
+                        spec=SPEC
+                        )
+                    }
+                ]
         else:
             messages = [
                 {"role": "user",
