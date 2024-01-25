@@ -311,19 +311,35 @@ def get_result_onestep(filename):
 
     for idx, q in tqdm(enumerate(data), total=len(data)):
         if 'csqa' in args.task:
-            messages = [
-                {"role": "user", 
-                 "content": f'"{q["question"]}"\nRephrase and expand the question, and respond. '
-                    "Choices: "+ ' '.join(f"{chr(65+i)}. {choice}" for i, choice in enumerate(q['choices'])) + "\n"
-                    + SPEC
-                }
-            ]
+            if "gpt-3.5" in model_id:
+                messages = [
+                    {"role": "user", 
+                     "content": f'"{q["question"]}"\nReword and elaborate on the inquiry, then provide an answer. '
+                        "Choices: "+ ' '.join(f"{chr(65+i)}. {choice}" for i, choice in enumerate(q['choices'])) + "\n"
+                        + SPEC
+                    }
+                ]    
+            else: 
+                messages = [
+                    {"role": "user", 
+                     "content": f'"{q["question"]}"\nRephrase and expand the question, and respond. '
+                        "Choices: "+ ' '.join(f"{chr(65+i)}. {choice}" for i, choice in enumerate(q['choices'])) + "\n"
+                        + SPEC
+                    }
+                ]
         else:
-            messages = [
-                {"role": "user", 
-                "content": f'"{q["question"]}"\nRephrase and expand the question, and respond. ' + SPEC
-                }
-            ]
+            if "gpt-3.5" in model_id:
+                messages = [
+                    {"role": "user", 
+                    "content": f'"{q["question"]}"\nReword and elaborate on the inquiry, then provide an answer. ' + SPEC
+                    }
+                ]
+            else:
+                messages = [
+                    {"role": "user", 
+                    "content": f'"{q["question"]}"\nRephrase and expand the question, and respond. ' + SPEC
+                    }
+                ]
         response = chatgpt_conversation(messages, model_id)
         answer = q['answer']
         
