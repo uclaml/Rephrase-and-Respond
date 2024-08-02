@@ -11,7 +11,7 @@
 
 This repo holds data and code of the paper "[Rephrase and Respond: Let Large Language Models Ask Better Questions for Themselves](https://arxiv.org/abs/2311.04205)".
 
-Authors: [Yihe Deng](https://sites.google.com/g.ucla.edu/yihedeng/), [Weitong Zhang](https://web.cs.ucla.edu/~weightzero/), [Zixiang Chen](https://sites.google.com/view/zxchen), [Quanquan Gu](https://web.cs.ucla.edu/~qgu/)
+Authors: [Yihe Deng](https://yihedeng9.github.io/), [Weitong Zhang](https://web.cs.ucla.edu/~weightzero/), [Zixiang Chen](https://sites.google.com/view/zxchen), [Quanquan Gu](https://web.cs.ucla.edu/~qgu/)
 
 [[Webpage](https://uclaml.github.io/Rephrase-and-Respond)] [[Paper](https://arxiv.org/abs/2311.04205)] [[Huggingface](https://huggingface.co/papers/2311.04205)] 
 
